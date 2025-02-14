@@ -1,0 +1,50 @@
+
+
+.model-pic {
+    height: 600px;
+    width: 800px;
+    margin-top: 150px;
+    position: absolute;
+    left: 0px;
+    
+}
+
+.message {
+    height: 200px;
+    width: 500px;
+    position: absolute;
+    right: 200px;
+    font-size: 40px;
+    font-family:'Times New Roman', Times, serif ;
+    font-weight: 500px;
+    background-color: rgb(202, 250, 202);
+    top: 400px;
+    padding: 50px 50px 50px 50px;
+    border-color: white;
+    border: 20px solid white;
+    
+
+}
+
+.letter-s {
+    font-weight: 600px;
+    font-size:90px ;
+}
+
+.model-container button {
+    background-color: rgb(92, 27, 27);
+    padding: 7px 10px 7px 10px;
+    color: white;
+    border: none;
+    font-size: 19px;
+    margin-top: 20px;
+    letter-spacing: 0.01em;
+}
+
+.model-container button:hover {
+    cursor: pointer;
+    transition: 0.2s;
+    background-color: rgb(129, 64, 64);
+
+
+}
