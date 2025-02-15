@@ -1,0 +1,145 @@
+.booking-container {
+    position: absolute;
+    top: 120px;
+    left: 420px;
+   
+    
+}
+
+.book-now {
+    padding: 10px 60px 10px 30px;
+    position: absolute;
+    top: 420px;
+    left: 400px;
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+   
+    
+}
+
+.first-layer {
+    display: flex;
+    margin-bottom: 10px;
+    
+}
+
+.book-now-label {
+   font-size: 40px;
+   letter-spacing: 0.3em;
+   color: rgb(1, 81, 1);
+   font-family:serif;
+   margin-bottom: 10px;
+   
+}
+
+.second-layer {
+    display: flex;
+    margin-bottom: 10px;
+    
+    
+}
+
+.hair-stylist {
+    font-size: 16px;
+    border: none;
+    padding: 5px 8px 5px 5px;
+    margin-right: 50px;
+    box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.5);
+    outline: none;
+}
+
+.service {
+    font-size: 16px;
+    border: none;
+    padding: 5px 8px 5px 5px;
+    margin-right: 50px;
+    box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.5);
+    outline: none;
+}
+
+.note {
+    font-size: 15px;
+    font-weight: normal;
+    font-family: arial;
+    margin-bottom: 6px;
+    color: rgb(68, 68, 68);
+}
+
+.full-name {
+    font-size: 16px;
+    border: none;
+    padding: 5px 8px 5px 5px;
+    margin-right: 50px;
+    box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.5);
+    outline: none;
+    
+}
+
+.mobile-number {
+    font-size: 16px;
+    border: none;
+    padding: 5px 8px 5px 5px;
+    margin-right: 50px;
+    box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.5);
+    outline: none;
+}
+
+.reservation-time {
+    font-size: 17px;
+    color: gray;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 300px;
+    margin-bottom: 10px;
+}
+
+.fourth-layer {
+    display: flex;
+
+}
+
+.fourth-layer button {
+    padding: 5px 10px 5px 10px;
+    margin-right: 5px;
+    height: 40px;
+    width: 60px;
+    border-radius: 20px;
+    border: none;
+    color: rgb(111, 111, 111);
+    font-weight: 500px;
+}
+
+.fourth-layer button:hover {
+    background-color: rgb(228, 228, 228);
+    cursor: pointer;
+    border-style:solid;
+    border-color: brown;
+    border-width: 1px;
+    transition: 0.3s;
+}
+
+::placeholder{
+    color:rgb(191, 191, 191);
+}
+
+.Reserve-layer {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.reserve-button {
+    background-color: black;
+    color: white;
+    padding: 8px;
+    border-radius: 45px;
+    width: 90px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 0.1em;
+    border: none;
+}
+
+.reserve-button:hover {
+   opacity: 0.6;
+    border: none;
+}
