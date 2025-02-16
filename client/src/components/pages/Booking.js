@@ -5,7 +5,7 @@ function Booking() {
         <div className="header">
             <div className="header">
                 <div class="logo-container">
-                    <img className="logo" src={require('../images/booking.png')} />
+                    <img className="logo" src={require('../images/celeblogo.png')} />
                 </div>
                 <div className="navigation-bar">
                     <a href={window.apihost + "home"}> <button>HOME</button></a>
@@ -22,7 +22,7 @@ function Booking() {
                 </div>
 
                 <div className="booking-container">
-                    <img class="booking-pic" src="/pictures/booking.png" />
+                    <img class="booking-pic" src={require('../images/booking.png')} />
                 </div>
 
                 <div class="book-now">
@@ -34,7 +34,7 @@ function Booking() {
                     </div>
                     <div class="second-layer">
                         <input class="hair-stylist" type="text" placeholder="Hair Stylist" />
-                        <input class="service" type="text" placeholder="Service" />
+                        <input class="service-input" type="text" placeholder="Service" />
                     </div>
                     <div class="third-layer">
                         <div class="reservation-time">Reservation time</div>

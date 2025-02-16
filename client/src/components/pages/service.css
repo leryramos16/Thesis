@@ -1,0 +1,28 @@
+
+
+
+.service {
+    position: absolute;
+    left: 450px;
+    top: 150px;
+    margin-bottom: 100px;
+}
+
+.price-list {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 290px;
+    top: 500px;
+    align-items: center;
+    justify-content: center;
+    
+    
+    
+}
+
+.price-list-picture {
+    width: 979px;
+    height: 1284px;
+    margin-bottom: 50px;
+}

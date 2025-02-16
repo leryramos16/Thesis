@@ -7,7 +7,7 @@ const Salon = () => {
     <div>
       <div className="header">
         <div class="logo-container">
-            <img className="logo" src={require('../images/booking.png')}/>
+            <img className="logo" src={require('../images/celeblogo.png')}/>
         </div>
         <div className="navigation-bar">
             <a href={window.apihost + "home"}> <button>HOME</button></a>
@@ -24,8 +24,8 @@ const Salon = () => {
     </div>
 
     <div className="social-bar">
-        <button><a target="_blank"/> <img src={require('../images/fb.png')}/></button>
-        <button><a target="_blank"/><img src={require('../images/tiktok.png')}/></button>
+        <button><a  target="_blank"/> <img src={require('../images/fb.png')}/></button>
+        <button><a  target="_blank"/><img src={require('../images/tiktok.png')}/></button>
         <button><a target="_blank"/> <img src={require('../images/ig.png')}/></button> 
     </div>
 
@@ -33,7 +33,7 @@ const Salon = () => {
         <img class="model-pic" src={require('../images/model.jpg')}/>
         
         <div className="message"><span class="letter-s">S</span>tart your dreams with Celebrity Styles Hair Salon
-            <a><button>Book an Apointment</button></a>
+        <a href={window.apihost + "booking"}><button>Book an Apointment</button></a>
         </div>
         
     </div>
