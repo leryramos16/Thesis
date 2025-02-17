@@ -42,7 +42,28 @@ const Salon = () => {
         <a href="https://www.tiktok.com/@celebritystyleshairsalon"><button class="follow-message">FOLLOW US ON TIKTOK</button></a>
         <a href="https://www.tiktok.com/@celebritystyleshairsalon"><button class="tiktok-user">@celebritystyleshairsalon</button></a>
     </div>
+
+    <div className="sample-container">
+        <img className="hair1" src={require('../images/hair1.jpg')} />
+        <img className="hair2" src={require('../images/hair2.jpg')} />
+        <img className="hair3" src={require('../images/hair3.jpg')} />
     </div>
+    <div className="second-layer-sample">
+        <img className="hair4" src={require('../images/hair4.jpg')} />
+        <img className="hair5" src={require('../images/hair5.jpg')} />
+        <img className="hair6" src={require('../images/hair6.jpg')} />
+    </div>   
+
+    <div className="footer">
+        
+
+    </div>
+
+    </div>
+
+    
+
+   
 
     
   );

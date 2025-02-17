@@ -106,6 +106,12 @@
     
 }
 
+.model-container {
+    display: flex;
+
+}
+
+
 .follow-link {
     position: absolute;
     top: 780px;
@@ -134,4 +140,48 @@
 
 .follow-link button:hover {
     cursor: pointer;
+}
+
+.sample-container {
+    display: flex;
+    width: 1120px;
+    height: 420px;
+    margin-top: 820px;
+    margin-left: 150px;
+ 
+    
+
+   
+}
+
+.sample-container img {
+    margin-left:20px;
+    height: 400px;
+    width: 350px;
+    border-radius: 4px;
+    
+}
+
+.second-layer-sample {
+    display: flex;
+    margin-left: 150px;
+    
+}
+
+.second-layer-sample img {
+    margin-left:20px;
+    height: 400px;
+    width: 350px;
+    border-radius: 4px;
+}
+
+.footer {
+    display: flex;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    margin-top: 100px;
+    background-color: rgb(171, 232, 171);
+    height: 300px;
+    left: 0px;
 }
