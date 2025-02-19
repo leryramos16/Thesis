@@ -26,3 +26,14 @@
     height: 1284px;
     margin-bottom: 50px;
 }
+
+.service-footer {
+    display: flex;
+    position: absolute;
+    flex-direction: column; 
+    margin-top:3000px;
+    left: 0px;
+    right: 0px;
+    background-color:rgb(202, 250, 202);
+    height: 380px;
+}

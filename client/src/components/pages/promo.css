@@ -12,3 +12,14 @@
 .promo-list img {
     margin-bottom: 30px;
 }
+
+.promo-footer {
+    display: flex;
+    position: absolute;
+    flex-direction: column; 
+    margin-top: 1550px; 
+    left: 0px;
+    right: 0px;
+    background-color:rgb(202, 250, 202);
+    height: 380px;
+}
