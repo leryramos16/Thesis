@@ -13,7 +13,7 @@ function Booking() {
                     <a href={window.apihost + "home"}> <button>HOME</button></a>
                     <a href={window.apihost + "promos"}><button>PROMOS</button></a>
                     <a href={window.apihost + "services"}><button>SERVICES</button></a>
-                    <button>CONTACT</button>
+                    <a href={window.apihost + "contact"}><button>CONTACT</button></a>
                 </div>
 
                 <div className="social-bar">

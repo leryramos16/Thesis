@@ -6,6 +6,7 @@ import Salon from "./components/pages/Salon"
 import Promos from "./components/pages/Promos"
 import Services from "./components/pages/Services"
 import Booking from "./components/pages/Booking"
+import Contact from "./components/pages/Contact"
 
 //Admin Page
 import Main from "./components/adminPage/Main"
@@ -23,6 +24,7 @@ function App() {
             <Route path="/promos" element={<Promos />} />
             <Route path="/services" element={<Services />} />
             <Route path="/booking" element={<Booking />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </BrowserRouter>
 

@@ -1,0 +1,57 @@
+.social-bar-contact {
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+    width: 30px;
+    position: fixed;
+    right: 32px; 
+    margin-top: 10px;
+   
+    
+}
+
+.social-bar-contact img {
+    margin-bottom: 20px;
+}
+
+
+.contact-footer {
+    display: flex;
+    position: absolute;
+    flex-direction: column; 
+    margin-top: 200px; 
+    left: 0px;
+    right: 0px;
+    background-color:rgb(202, 250, 202);
+    height: 380px;
+}
+
+.contact-confirmation {
+    margin-top: 220px;
+   
+    text-align: center;
+    align-items: center;
+}
+
+.first-paragraph {
+    margin-left: 20px;
+    font-size: 30px;
+    letter-spacing: 1px;
+    font-family: serif;
+}
+
+.second-paragraph {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    
+}
+
+.hotline {
+    font-weight: bold;
+}
+
+.active-contact {
+    opacity: 0.5;
+}

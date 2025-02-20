@@ -10,10 +10,10 @@ const Salon = () => {
             <img className="logo" src={require('../images/celeblogo.png')}/>
         </div>
         <div className="navigation-bar">
-            <a href={window.apihost + "home"}> <button>HOME</button></a>
+            <a href={window.apihost + "home"}> <button className="active-home">HOME</button></a>
             <a href={window.apihost + "promos"}><button>PROMOS</button></a>
             <a href={window.apihost + "services"}><button>SERVICES</button></a>
-            <button>CONTACT</button>
+            <a href={window.apihost + "contact"}><button>CONTACT</button></a>
         </div>
         
     </div>

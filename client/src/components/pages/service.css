@@ -37,3 +37,7 @@
     background-color:rgb(202, 250, 202);
     height: 380px;
 }
+
+.active-services {
+    opacity: 0.5;
+}
