@@ -20,7 +20,8 @@
 
 .first-layer {
     display: flex;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
+    margin-top: 30px;
     
 }
 
@@ -35,27 +36,40 @@
 
 .second-layer {
     display: flex;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
+
     
     
 }
 
-.hair-stylist {
+.stylist-label {
     font-size: 16px;
-    border: none;
-    padding: 5px 8px 5px 5px;
-    margin-right: 50px;
-    box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.5);
-    outline: none;
+    align-items: center;
+    justify-content: center;
+    margin-top: 13px;
+    font-family: arial;
+    color:rgb(39, 39, 39);
 }
 
-.service-input {
+
+.service-label {
+    font-size: 16px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 13px;
+    font-family: arial;
+    color:rgb(39, 39, 39);
+    margin-left: 30px;
+}
+
+select {
     font-size: 16px;
     border: none;
     padding: 5px 8px 5px 5px;
     margin-right: 50px;
-    box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.5);
+    margin-top: 8px;
     outline: none;
+    color:rgb(39, 39, 39);
 }
 
 .note {
@@ -90,7 +104,7 @@
     color: gray;
     font-family:Arial, Helvetica, sans-serif;
     font-weight: 300px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .fourth-layer {
@@ -118,6 +132,8 @@
     transition: 0.3s;
 }
 
+
+
 ::placeholder{
     color:rgb(191, 191, 191);
 }
@@ -126,7 +142,7 @@
     display: flex;
     justify-content: end;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .reserve-button {

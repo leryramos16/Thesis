@@ -33,8 +33,25 @@ function Booking() {
                         <input class="mobile-number" type="text" placeholder="Mobile number" />
                     </div>
                     <div class="second-layer">
-                        <input class="hair-stylist" type="text" placeholder="Hair Stylist" />
-                        <input class="service-input" type="text" placeholder="Service" />
+                    <label className="stylist-label" for="stylist">Stylist:</label>
+                            <select name="stylist" id="stylist">
+                            <option value="stylistname">Ms. Ghai</option>
+                            <option value="stylistname">Ms. Lyn</option>
+                            <option value="stylistname">Ms. Essy</option>   
+                            <option value="stylistname">Ms. Len</option>  
+                            <option value="stylistname">Ms. Shee</option>  
+                            <option value="stylistname">Ms. Aubrey</option> 
+                            <option value="stylistname">Ms. Rio</option>
+                            <option value="stylistname">Ms. Kate</option>
+                            <option value="stylistname">Ms. Yumi</option>
+                                  
+                        </select>
+                        <label className="service-label" for="service">Service:</label>
+                            <select name="service" id="service">
+                            <option value="hairmakeup">Hair and Makeup</option>
+                            <option value="manicure">Manicure Pedicure</option>
+                            <option value="haircolor">Hair Color</option>                   
+                        </select>
                     </div>
                     <div class="third-layer">
                         <div class="reservation-time">Reservation time</div>
