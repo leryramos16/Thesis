@@ -44,15 +44,24 @@ function Booking() {
                             <option value="stylistname">Ms. Rio</option>
                             <option value="stylistname">Ms. Kate</option>
                             <option value="stylistname">Ms. Yumi</option>
+                            <option value="stylistname">Anyone</option>
                                   
                         </select>
                         <label className="service-label" for="service">Service:</label>
                             <select name="service" id="service">
                             <option value="hairmakeup">Hair and Makeup</option>
                             <option value="manicure">Manicure Pedicure</option>
-                            <option value="haircolor">Hair Color</option>                   
+                            <option value="haircolor">Hair Color</option>   
+                            <option value="rebond">Rebond</option>
+                            <option value="treatment">Treatment</option>                  
                         </select>
                     </div>
+
+                    <div className="date-container">
+                        <p>Choose date:</p>
+                        <input type="date"></input>
+                    </div>
+
                     <div class="third-layer">
                         <div class="reservation-time">Reservation time</div>
                     </div>

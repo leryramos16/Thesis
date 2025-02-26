@@ -123,6 +123,7 @@ select {
     font-weight: 500px;
 }
 
+
 .fourth-layer button:hover {
     background-color: rgb(228, 228, 228);
     cursor: pointer;
@@ -132,6 +133,12 @@ select {
     transition: 0.3s;
 }
 
+.date-container {
+    font-family: arial;
+    display: flex;
+    margin-bottom: 20px;
+    
+}
 
 
 ::placeholder{
@@ -165,7 +172,7 @@ select {
     display: flex;
     position: absolute;
     flex-direction: column; 
-    margin-top: 900px; 
+    margin-top: 1000px; 
     left: 0px;
     right: 0px;
     background-color:rgb(202, 250, 202);
