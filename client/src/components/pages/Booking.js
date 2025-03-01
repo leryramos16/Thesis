@@ -69,8 +69,7 @@ function Booking() {
                         <button>08AM</button>
                         <button>09AM</button>
                         <button>10NN</button>
-                        <button>11PM</button>
-                        <button>12PM</button>
+                        <button>11PM</button>                
                         <button>01PM</button>
                         <button>02PM</button>
                         <button>03PM</button>
