@@ -77,7 +77,7 @@ function Booking() {
                         <button>05PM</button>
                     </div>           
                     <div class="Reserve-layer">
-                        <button class="reserve-button">RESERVE</button>
+                    <a href={window.apihost + "reservationdetails"}><button class="reserve-button">RESERVE</button></a>
                     </div> 
                     </div> 
                     <div className="booking-footer">
