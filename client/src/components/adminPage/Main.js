@@ -11,9 +11,11 @@ import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import { createTheme } from '@mui/material/styles';
 import CloudCircleIcon from '@mui/icons-material/CloudCircle';
+import InventoryIcon from '@mui/icons-material/Inventory';
+import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import LayersIcon from '@mui/icons-material/Layers';
+import ListAltIcon from '@mui/icons-material/ListAlt';
 import { AppProvider } from '@toolpad/core/AppProvider';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { PageContainer } from '@toolpad/core/PageContainer';
@@ -23,15 +25,18 @@ import Grid from '@mui/material/Grid2';
 import Employee from './Employee';
 import Dashboard from './Dashboard';
 
-const NAVIGATION = [
-    {
-        kind: 'header',
-        title: 'Main items',
-    },
+const NAVIGATION = [    
     {
         segment: 'dashboard',
         title: 'Dashboard',
         icon: <DashboardIcon />,
+    },    
+    {
+        kind: 'divider',
+    },
+    {
+        kind: 'header',
+        title: 'Manage People',
     },
     {
         segment: 'employees',
@@ -39,11 +44,12 @@ const NAVIGATION = [
         icon: <GroupIcon />,
     },
     {
-        kind: 'divider',
+        segment: 'users',
+        title: 'Users',
+        icon: <SupervisedUserCircleIcon />,
     },
     {
-        kind: 'header',
-        title: 'Analytics',
+        kind: 'divider',
     },
     {
         segment: 'reports',
@@ -51,22 +57,17 @@ const NAVIGATION = [
         icon: <BarChartIcon />,
         children: [
             {
-                segment: 'sales',
-                title: 'Sales',
-                icon: <DescriptionIcon />,
+                segment: 'Employee Monitoring',
+                title: 'Employee Monitoring',
+                icon: <ListAltIcon />,
             },
             {
-                segment: 'traffic',
-                title: 'Traffic',
-                icon: <DescriptionIcon />,
-            },
+                segment: 'inventory',
+                title: 'Inventory',
+                icon: <InventoryIcon />,
+            },    
         ],
-    },
-    {
-        segment: 'integrations',
-        title: 'Integrations',
-        icon: <LayersIcon />,
-    },
+    },    
 ];
 
 const demoTheme = extendTheme({
