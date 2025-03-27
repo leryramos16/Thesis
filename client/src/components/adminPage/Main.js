@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { extendTheme, styled } from '@mui/material/styles';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import GroupIcon from '@mui/icons-material/Group';
@@ -19,171 +19,75 @@ import ListAltIcon from '@mui/icons-material/ListAlt';
 import { AppProvider } from '@toolpad/core/AppProvider';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
 import { PageContainer } from '@toolpad/core/PageContainer';
-import Grid from '@mui/material/Grid2';
+import axios from "axios";
 
 //Pages
-import Employee from './Employee';
-import Dashboard from './Dashboard';
+import Login from './Login';
+import Content from './Content';
 
-const NAVIGATION = [    
-    {
-        segment: 'dashboard',
-        title: 'Dashboard',
-        icon: <DashboardIcon />,
-    },    
-    {
-        kind: 'divider',
-    },
-    {
-        kind: 'header',
-        title: 'Manage People',
-    },
-    {
-        segment: 'employees',
-        title: 'Employees',
-        icon: <GroupIcon />,
-    },
-    {
-        segment: 'users',
-        title: 'Users',
-        icon: <SupervisedUserCircleIcon />,
-    },
-    {
-        kind: 'divider',
-    },
-    {
-        segment: 'reports',
-        title: 'Reports',
-        icon: <BarChartIcon />,
-        children: [
-            {
-                segment: 'Employee Monitoring',
-                title: 'Employee Monitoring',
-                icon: <ListAltIcon />,
-            },
-            {
-                segment: 'inventory',
-                title: 'Inventory',
-                icon: <InventoryIcon />,
-            },    
-        ],
-    },    
-];
-
-const demoTheme = extendTheme({
-    colorSchemes: { light: true, dark: true },
-    colorSchemeSelector: 'class',
-    breakpoints: {
-        values: {
-            xs: 0,
-            sm: 600,
-            md: 600,
-            lg: 1200,
-            xl: 1536,
-        },
-    },
-});
-
-function useDemoRouter(initialPath) {
-    const [pathname, setPathname] = React.useState(initialPath);
-
-    const router = React.useMemo(() => {
-        return {
-            pathname,
-            searchParams: new URLSearchParams(),
-            navigate: (path) => setPathname(String(path)),
-        };
-    }, [pathname]);
-
-    return router;
-}
-
-const Skeleton = styled('div')(({ theme, height }) => ({
-    backgroundColor: theme.palette.action.hover,
-    borderRadius: theme.shape.borderRadius,
-    height,
-    content: '" "',
-}));
-
-function CustomAppTitle() {
-    return (
-        <Stack direction="row" alignItems="center" spacing={2}>
-            <CloudCircleIcon fontSize="large" color="primary" />
-            <Typography variant="h6">Celebrity Styles Hair Salon</Typography>
-            <Chip size="small" label="Admin" color="info" />
-            <Tooltip title="Connected to production">
-                <CheckCircleIcon color="success" fontSize="small" />
-            </Tooltip>
-        </Stack>
-    );
-}
-
-function SidebarFooter({ mini }) {
-    return (
-        <Typography
-            variant="caption"
-            sx={{ m: 1, whiteSpace: 'nowrap', overflow: 'hidden' }}
-        >
-            {mini ? '© CHS' : `© ${new Date().getFullYear()} Celebrity Styles Hair Salon`}
-        </Typography>
-    );
-}
+//Context
+import UserContext from '../context/UserContext';
 
 const Main = (props) => {
-    const { window } = props;
-
-    const router = useDemoRouter('/dashboard');
-
-    const [session, setSession] = React.useState({
-        user: {
-            name: 'AAAA AAAa',
-            email: 'sample@outlook.com',
-            image: 'https://avatars.githubusercontent.com/u/19550456',
-        },
+    const [userData, setUserData] = useState({
+        token: undefined,
+        user: undefined,
     });
+    const [loader, setLoader] = useState(true);
 
-    const authentication = React.useMemo(() => {
-        return {
-            signIn: () => {
-                setSession({
-                    user: {
-                        name: 'AAAA AAAa',
-                        email: 'sample@outlook.com',
-                        image: 'https://avatars.githubusercontent.com/u/19550456',
-                    },
+    useEffect(() => {
+        setTimeout(() => setLoader(false), 2000)
+    }, [loader, setLoader]);
+
+    useEffect(() => {
+        const data = sessionStorage.getItem("userData");
+        if (data) setUserData(JSON.parse(data));
+    }, []);
+
+    useEffect(() => {
+        var route = "login/tokenIsValid";
+        var url = window.apihost + route;
+        const checkLogin = async () => {
+            let token = sessionStorage.getItem("auth-token");
+            if (token === null) {
+                sessionStorage.setItem("auth-token", "");
+                token = "";
+                setUserData({
+                    token: undefined,
+                    user: undefined,
                 });
-            },
-            signOut: () => {
-                setSession(null);
-            },
+            }
+            const response = await axios.post(url,
+                null,
+                { headers: { "x-auth-token": token } }
+            );
+            if (response.data) {
+                console.log(response.data);
+                const user = await axios.get(url,
+                    {
+                        headers: { "x-auth-token": token },
+                    });
+                setUserData({
+                    token,
+                    user: response.data,
+                });
+            }
         };
+
+        checkLogin();
     }, []);
 
     //const demoWindow = window ? window() : undefined;
     return (
-        <AppProvider
-            navigation={NAVIGATION}
-            router={router}
-            theme={demoTheme}
-            session={session}
-            authentication={authentication}
-        //window={demoWindow}
-        >
-            <DashboardLayout defaultSidebarCollapsed
-                slots={{
-                    appTitle: CustomAppTitle,
-                    sidebarFooter: SidebarFooter,
-                }}
-            >
-                {router.pathname === "/employees" &&
-                    <Employee />
-                }
+        <UserContext.Provider value={{ userData, setUserData }}>
+            {loader === false && userData.user &&
+                <Content />
+            }
 
-                {router.pathname === "/dashboard" &&
-                    <Dashboard />
-                }
-            </DashboardLayout>
-        </AppProvider>
+            {loader === false && !userData.user &&
+                <Login />
+            }
+        </UserContext.Provider>
     );
 }
 

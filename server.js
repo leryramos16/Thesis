@@ -26,9 +26,17 @@ app.use(express.static(path.join(__dirname, "/app_data")));
 
 app.use(express.static("client/build"));
 
+// Route to login
+const loginRouter = require("./routers/login");
+app.use("/login", loginRouter);
+
 //Route to employees
 const employeesRouter = require("./routers/employees");
 app.use("/employees", employeesRouter);
+
+//Route to users
+const usersRouter = require("./routers/users.js");
+app.use("/users", usersRouter);
 
 app.listen(PORT, () => {
 	console.log("Server Started");

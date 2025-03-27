@@ -15,6 +15,44 @@ const loginValidation = (data) => {
 	return schema.validate(data, { abortEarly: false });
 };
 
+//Regsistration Validation
+const registrationValidation = (data) => {
+	const schema = Joi.object({
+		userName: Joi.string().required().messages({
+			"string.empty": `Username is required.`,
+		}),
+		name: Joi.string().required().messages({
+			"string.empty": `Name is required.`,
+		}),
+		password: Joi.string().required().messages({
+			"string.empty": `Password is required.`,
+		}),
+		confirmPassword: Joi.string().required().messages({
+			"string.empty": `Confirm Password is required.`,
+		}),
+		role: Joi.string().required().messages({
+			"string.empty": `Role is required.`,
+		}),
+	});
+	return schema.validate(data, { abortEarly: false });
+};
+
+//Regsistration Edit Validation
+const registrationEditValidation = (data) => {
+	const schema = Joi.object({
+		UserName: Joi.string().required().messages({
+			"string.empty": `Username is required.`,
+		}),
+		Name: Joi.string().required().messages({
+			"string.empty": `Name is required.`,
+		}),
+		Role: Joi.string().required().messages({
+			"string.empty": `Role is required.`,
+		}),
+	});
+	return schema.validate(data, { abortEarly: false });
+};
+
 //Employee Validation
 const employeeValidation = (data) => {
 	const schema = Joi.object({
@@ -36,4 +74,7 @@ const employeeValidation = (data) => {
 	return schema.validate(data, { abortEarly: false });
 };
 
+module.exports.loginValidation = loginValidation;
+module.exports.registrationValidation = registrationValidation;
+module.exports.registrationEditValidation = registrationEditValidation;
 module.exports.employeeValidation = employeeValidation;
