@@ -38,6 +38,10 @@ app.use("/employees", employeesRouter);
 const usersRouter = require("./routers/users.js");
 app.use("/users", usersRouter);
 
+//Route to inventory
+const inventoryRouter = require("./routers/inventory.js");
+app.use("/inventory", inventoryRouter);
+
 app.listen(PORT, () => {
 	console.log("Server Started");
 });

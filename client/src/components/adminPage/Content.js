@@ -16,6 +16,7 @@ import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
 import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import BookOnlineIcon from '@mui/icons-material/BookOnline';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import { AppProvider } from '@toolpad/core/AppProvider';
 import { DashboardLayout } from '@toolpad/core/DashboardLayout';
@@ -28,6 +29,8 @@ import Login from './Login';
 import Employee from './Employee';
 import Dashboard from './Dashboard';
 import Users from './User';
+import Booking from './Booking';
+import Inventory from './Inventory';
 
 //Context
 import UserContext from '../context/UserContext';
@@ -59,21 +62,19 @@ const NAVIGATION = [
         kind: 'divider',
     },
     {
-        segment: 'reports',
-        title: 'Reports',
-        icon: <BarChartIcon />,
-        children: [
-            {
-                segment: 'Employee Monitoring',
-                title: 'Employee Monitoring',
-                icon: <ListAltIcon />,
-            },
-            {
-                segment: 'inventory',
-                title: 'Inventory',
-                icon: <InventoryIcon />,
-            },
-        ],
+        segment: 'reservation',
+        title: 'Reservation',
+        icon: <BookOnlineIcon />,
+    },
+    {
+        segment: 'Employee Monitoring',
+        title: 'Employee Monitoring',
+        icon: <ListAltIcon />,
+    },
+    {
+        segment: 'inventory',
+        title: 'Inventory',
+        icon: <InventoryIcon />,
     },
 ];
 
@@ -244,6 +245,14 @@ const Content = (props) => {
 
                 {router.pathname === "/users" &&
                     <Users />
+                }
+
+                {router.pathname === "/reservation" &&
+                    <Booking />
+                }
+
+                {router.pathname === "/inventory" &&
+                    <Inventory />
                 }
             </DashboardLayout>
         </AppProvider>

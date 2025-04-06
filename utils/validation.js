@@ -74,7 +74,27 @@ const employeeValidation = (data) => {
 	return schema.validate(data, { abortEarly: false });
 };
 
+//Inventory Validation
+const inventoryValidation = (data) => {
+	const schema = Joi.object({
+		name: Joi.string().required().messages({
+			"string.empty": `Name No. is required`,
+		}),
+		quantity: Joi.number().required().messages({
+			"string.empty": `Quantity is required`,
+		}),
+		category: Joi.string().required().messages({
+			"string.empty": `Category is required`,
+		}),
+		notifier: Joi.number().required().messages({
+			"string.empty": `Notifier is required`,
+		}),
+	});
+	return schema.validate(data, { abortEarly: false });
+};
+
 module.exports.loginValidation = loginValidation;
 module.exports.registrationValidation = registrationValidation;
 module.exports.registrationEditValidation = registrationEditValidation;
 module.exports.employeeValidation = employeeValidation;
+module.exports.inventoryValidation = inventoryValidation;
