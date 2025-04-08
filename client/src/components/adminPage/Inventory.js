@@ -497,7 +497,7 @@ const Inventory = (props) => {
                     onChange={e => setSelectedCategory(e)}
                     placeholder='Search Category'
                     isClearable
-                    isMulti
+                    //isMulti
                     theme={(theme) => ({
                         ...theme,
                         // borderRadius: 0,
