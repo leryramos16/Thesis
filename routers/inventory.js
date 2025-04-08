@@ -34,10 +34,10 @@ router.post("/", async (request, response) => {
 
 router.put("/:id", async (request, response) => {
     try {
-        const stock = await employeeModel.findById(request.params.id);
+        const stock = await inventoryModel.findById(request.params.id);
         const updates = request.body;
         const options = { new: true };
-        const updatedStock = await employeeModel.findByIdAndUpdate(
+        const updatedStock = await inventoryModel.findByIdAndUpdate(
             stock,
             updates,
             options
@@ -63,10 +63,19 @@ router.post("/list", async (request, response) => {
 
             var stocks = [];
 
-            stocks = await inventoryModel.find({
-                '$or': id,
-                IsDeleted: false
-            }).sort('name');
+            if (Object.keys(request.body.selectedCategory).length > 0) {
+                var category = request.body.selectedCategory[0].value
+                stocks = await inventoryModel.find({
+                    '$or': id,
+                    category: category,
+                    IsDeleted: false
+                }).sort('name');
+            } else {
+                stocks = await inventoryModel.find({
+                    '$or': id,
+                    IsDeleted: false
+                }).sort('name');
+            }
 
             var data = [];
             for (const i in stocks) {
@@ -83,9 +92,18 @@ router.post("/list", async (request, response) => {
         } else {
             var id = [];
 
-            stocks = await inventoryModel.find({
-                IsDeleted: false
-            }).skip((page) * perPage).limit(perPage).sort('name');
+            if (Object.keys(request.body.selectedCategory).length > 0) {
+                var category = request.body.selectedCategory[0].value
+                stocks = await inventoryModel.find({
+                    category: category,
+                    IsDeleted: false
+                }).sort('name');
+            } else {
+                stocks = await inventoryModel.find({
+                    IsDeleted: false
+                }).skip((page) * perPage).limit(perPage).sort('name');
+            }
+            
 
             var data = [];
             for (const i in stocks) {
@@ -149,10 +167,10 @@ router.post("/stock-options", async (request, response) => {
 //Delete user from the database based on id
 router.delete("/:id", async (request, response) => {
     try {
-        const stock = await employeeModel.findById(request.params.id);
+        const stock = await inventoryModel.findById(request.params.id);
         const updates = { IsDeleted: true };
         const options = { new: true };
-        const deletedStock = await employeeModel.findByIdAndUpdate(
+        const deletedStock = await inventoryModel.findByIdAndUpdate(
             stock,
             updates,
             options

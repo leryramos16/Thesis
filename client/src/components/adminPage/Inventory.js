@@ -20,6 +20,7 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
 import Input from '@mui/material/Input';
 import Modal from '@mui/material/Modal';
+import Chip from '@mui/material/Chip';
 import Backdrop from '@mui/material/Backdrop';
 import { Save, Edit, Delete, Add } from '@mui/icons-material';
 import Select from 'react-select';
@@ -179,7 +180,7 @@ const Inventory = (props) => {
             .finally(function () {
                 // always executed
             });
-    }, [page, selectedStock, loader]);
+    }, [page, selectedStock, selectedCategory, loader]);
 
     const stockList = stockData
         ? stockData.map((x) => ({
@@ -520,7 +521,7 @@ const Inventory = (props) => {
                                     <TableCell>Name</TableCell>
                                     <TableCell>Quantity</TableCell>
                                     <TableCell>Category</TableCell>
-                                    <TableCell>Notifier</TableCell>
+                                    <TableCell>Status</TableCell>
                                     <TableCell>Actions</TableCell>
                                 </TableRow>
                             </TableHead>
@@ -530,7 +531,17 @@ const Inventory = (props) => {
                                         <TableCell>{x.name}</TableCell>
                                         <TableCell>{x.quantity}</TableCell>
                                         <TableCell>{x.category}</TableCell>
-                                        <TableCell>{x.notifier}</TableCell>
+                                        <TableCell>
+                                            {x.quantity !== 0 && x.quantity <= x.notifier &&
+                                                <Chip label="Low Stock" color="primary" style={{ backgroundColor: "orange"}} />
+                                            }
+                                            {x.quantity == 0 &&
+                                                <Chip label="No Stock" color="error" />
+                                            }
+                                            {x.quantity > x.notifier &&
+                                                <Chip label="Good" color="success" />
+                                            }
+                                        </TableCell>
                                         <TableCell>
                                             <ButtonGroup
                                                 disableElevation
@@ -678,6 +689,159 @@ const Inventory = (props) => {
                                 </Button>
                             </div>
                         </form>
+                    </Box>
+                </Modal>
+
+                <Modal
+                    aria-labelledby="spring-modal-title"
+                    aria-describedby="spring-modal-description"
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    }}
+                    open={editModal}
+                    //onClose={handleCloseEditModal}
+                    closeAfterTransition
+                    //slots={{ backdrop: Backdrop }}
+                    slotProps={{ backdrop: { timeout: 500 } }}
+                >
+                    <Box
+                        style={{
+                            backgroundColor: 'whitesmoke',
+                            border: '2px solid #000',
+                            padding: '10px',
+                            boxShadow: '1px 1px'
+                        }}
+                    >
+                        <div>
+                            <h1>Edit Employee</h1>
+                        </div>
+                        <Divider />
+                        <br />
+                        <form noValidate autoComplete="off">
+                            <div>
+                                <label style={{ fontSize: '17px' }}><strong>Name</strong></label><br />
+                                <TextField variant='outlined' size='small' fullWidth placeholder="Name" value={name} onChange={e => setName(e.target.value)} inputProps={{ 'aria-label': 'description' }} />
+                            </div>
+
+                            <br />
+
+                            <div>
+                                <label style={{ fontSize: '17px' }}><strong>Quantity</strong></label><br />
+                                <TextField variant='outlined' type="number" size='small' fullWidth placeholder="Quantity" value={quantity} onChange={e => setQuantity(e.target.value)} inputProps={{ 'aria-label': 'description' }} />
+                            </div>
+
+                            <br />
+
+                            <div>
+                                <label style={{ fontSize: '17px' }}><b>Category</b></label>
+                                <Select
+                                    defaultValue={category}
+                                    options={categoryOptions()}
+                                    onChange={e => setCategory(e)}
+                                    placeholder='Category...'
+                                    // isClearable
+                                    // isMulti
+                                    theme={(theme) => ({
+                                        ...theme,
+                                        // borderRadius: 0,
+                                        colors: {
+                                            ...theme.colors,
+                                            text: 'black',
+                                            primary25: '#66c0f4',
+                                            primary: '#B9B9B9',
+                                        },
+                                    })}
+                                    styles={customSelectStyle}
+                                />
+                            </div>
+
+                            <br />
+
+                            <div>
+                                <label style={{ fontSize: '17px' }}><strong>Notifier</strong></label><br />
+                                <TextField variant='outlined' type="number" size='small' fullWidth placeholder="Notifier" value={notifier} onChange={e => setNotifier(e.target.value)} inputProps={{ 'aria-label': 'description' }} />
+                            </div>
+
+                            <br />
+
+                            <div>
+                                <Button
+                                    size="large"
+                                    // style={{ float: 'right' }}
+                                    variant="contained"
+                                    color="default"
+                                    onClick={handleCloseEditModal}>
+                                    <b>Cancel</b>
+                                </Button>
+                                <Button
+                                    size="large"
+                                    style={{ marginLeft: 10 }}
+                                    variant="contained"
+                                    color="default"
+                                    startIcon={<Save />}
+                                    onClick={handleEditStock}>
+                                    <b>Submit</b>
+                                </Button>
+                            </div>
+                        </form>
+                    </Box>
+                </Modal>
+
+                <Modal
+                    aria-labelledby="spring-modal-title"
+                    aria-describedby="spring-modal-description"
+                    style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                    }}
+                    open={deletePopup}
+                    //onClose={handleCloseDeleteModal}
+                    closeAfterTransition
+                    //slots={{ backdrop: Backdrop }}
+                    slotProps={{ backdrop: { timeout: 500 } }}
+                >
+                    <Box
+                        style={{
+                            backgroundColor: 'whitesmoke',
+                            border: '2px solid #000',
+                            padding: '10px',
+                            boxShadow: '1px 1px'
+                        }}
+                    >
+                        <div>
+                            <h1>Warning</h1>
+                        </div>
+                        <Divider />
+                        <br />
+
+                        <p>Are you sure you want to delete this Item?</p>
+
+                        <br />
+                        <Divider />
+                        <br />
+
+                        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                            <Button
+                                size="large"
+                                // style={{ float: 'right' }}
+                                variant="contained"
+                                color="default"
+                                onClick={handleCloseDeleteModal}>
+                                <b>Cancel</b>
+                            </Button>
+                            <Button
+                                size="large"
+                                style={{ marginLeft: 10 }}
+                                variant="contained"
+                                color='error'
+                                startIcon={<Delete />}
+                                onClick={handleDeleteItem}>
+                                <b>Delete</b>
+                            </Button>
+                        </div>
                     </Box>
                 </Modal>
             </div>
